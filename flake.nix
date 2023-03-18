@@ -22,10 +22,10 @@
                   ascender = 790;
                   xHeight = 570;
                 };
-                iosevka-term = pkgs.iosevka.override {
+                iosevka-curly = pkgs.iosevka.override {
                   set = "curly";
                   privateBuildPlan = {
-                    family = "Iosevka Term Iaso";
+                    family = "Iosevka Curly Iaso";
                     spacing = "term";
                     serifs = "sans";
                     no-ligation = false;
@@ -160,7 +160,7 @@
               in
               ''
                 mkdir -p ttf
-                for ttf in ${iosevka-term}/share/fonts/truetype/*.ttf ${iosevka-aile}/share/fonts/truetype/*.ttf ${iosevka-etoile}/share/fonts/truetype/*.ttf; do
+                for ttf in ${iosevka-curly}/share/fonts/truetype/*.ttf ${iosevka-aile}/share/fonts/truetype/*.ttf ${iosevka-etoile}/share/fonts/truetype/*.ttf; do
                   cp $ttf .
                   ${pkgs.woff2}/bin/woff2_compress *.ttf
                   mv *.ttf ttf
@@ -170,6 +170,8 @@
               mkdir -p $out
               cp *.woff2 $out
               cp ttf/*.ttf $out
+
+              cp ${src/family.css} $out
             '';
           };       
       });

@@ -116,7 +116,8 @@
                     capital-t = "serifed"; # not part of original Iosevka Aile
                     w = "straight-flat-top";
                     #capital-g = "toothless-rounded-serifless-hooked";
-                    r = "corner-hooked";
+                    i = "zshaped";
+                    r = "serifed";
 
                     tilde = "low";
                     number-sign = "slanted-tall";

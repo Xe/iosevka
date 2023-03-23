@@ -60,7 +60,7 @@
               set = "aile";
               privateBuildPlan = {
                 family = "Iosevka Aile Iaso";
-                spacing = "quasi-proportional-extension-only";
+                spacing = "quasi-proportional";
                 no-ligation = true;
                 no-cv-ss = true;
                 variants = {
@@ -86,14 +86,9 @@
                   };
                 };
                 weights.regular = {
-                  shape = 400;
-                  menu = 400;
-                  css = 400;
-                };
-                widths.normal = {
-                  shape = 550;
-                  menu = 7;
-                  css = "expanded";
+                  shape = 300;
+                  menu = 300;
+                  css = 300;
                 };
                 inherit metric-override;
               };
@@ -144,11 +139,6 @@
                   menu = 400;
                   css = 400;
                 };
-                widths.normal = {
-                  shape = 600;
-                  menu = 7;
-                  css = "expanded";
-                };
                 inherit metric-override;
               };
             };
@@ -156,6 +146,8 @@
             mkdir -p ttf
             for ttf in ${iosevka-curly}/share/fonts/truetype/*.ttf ${iosevka-aile}/share/fonts/truetype/*.ttf ${iosevka-etoile}/share/fonts/truetype/*.ttf; do
               cp $ttf .
+
+              echo "processing $ttf"
 
               name=`basename -s .ttf $ttf`
               pyftsubset \
@@ -168,14 +160,23 @@
                 --unicodes="U+0000-00A0,U+00A2-00A9,U+00AC-00AE,U+00B0-00B7,U+00B9-00BA,U+00BC-00BE,U+00D7,U+00F7,U+2000-206F,U+2074,U+20AC,U+2122,U+2190-21BB,U+2212,U+2215,U+F8FF,U+FEFF,U+FFFD"
               mv *.ttf ttf
             done
+
+            ${pkgs.zip}/bin/zip ttf.zip ttf/*.ttf
+
+            ${pkgs.python3}/bin/python3 ${./src/specimen.py}
           '';
           installPhase = ''
             mkdir -p $out
             cp *.woff2 $out
-            cp ttf/*.ttf $out
+            cp ttf.zip $out
 
             cp ${src/family.css} $out/family.css
+            cp *.html $out
           '';
+        };
+
+        devShells.default = pkgs.mkShell {
+          buildInputs = [pkgs.python3];
         };
       });
 }

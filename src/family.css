@@ -1,22 +1,36 @@
 @font-face {
-    font-family: "Iosevka Etoile Iaso";
+    font-family: "Iosevka Aile Iaso";
     font-weight: 100 900;
-    src: local("Iosevka Etoile Iaso")
-       , url("iosevka-etoile-regular.woff2") format("woff2")
-       , url("iosevka-etoile-italic.woff2") format("woff2");
+    font-style: normal;
+    src: local("Iosevka Aile Iaso")
+       , url("iosevka-aile-regular.woff2") format("woff2");
 }
-
 @font-face {
     font-family: "Iosevka Aile Iaso";
     font-weight: 100 900;
+    font-style: italic;
     src: local("Iosevka Aile Iaso")
-       , url("iosevka-aile-regular.woff2") format("woff2")
        , url("iosevka-aile-italic.woff2") format("woff2");
 }
-
+    
 @font-face {
     font-family: "Iosevka Curly Iaso";
     font-weight: 100 900;
     src: local("Iosevka Curly Iaso")
        , url("iosevka-curly-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Iosevka Etoile Iaso";
+    font-weight: 100 900;
+    font-style: normal;
+    src: local("Iosevka Etoile Iaso")
+       , url("iosevka-etoile-regular.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Iosevka Etoile Iaso";
+    font-weight: 100 900;
+    font-style: italic;
+    src: local("Iosevka Etoile Iaso")
+       , url("iosevka-etoile-italic.woff2") format("woff2");
 }

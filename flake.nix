@@ -86,9 +86,9 @@
                   };
                 };
                 weights.regular = {
-                  shape = 300;
-                  menu = 300;
-                  css = 300;
+                  shape = 400;
+                  menu = 400;
+                  css = 400;
                 };
                 inherit metric-override;
               };

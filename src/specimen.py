@@ -68,23 +68,7 @@ with open("specimen.html", "w") as fout:
         ''')
 
         i = 0
-        for ch in range(0x20, 0xA0):
-            if i == 10:
-                fout.write("</tr><tr>")
-                i = 0
-
-            fout.write(f'''<td><big>&#x{ch:02x}</big><br />0x{ch:02x}</td>''')
-            i += 1
-
-        for ch in range(0xA2, 0xA9):
-            if i == 10:
-                fout.write("</tr><tr>")
-                i = 0
-
-            fout.write(f'''<td><big>&#x{ch:02x}</big><br />0x{ch:02x}</td>''')
-            i += 1
-            
-        for ch in range(0xAC, 0xAE):
+        for ch in range(0x20, 0xBE):
             if i == 10:
                 fout.write("</tr><tr>")
                 i = 0

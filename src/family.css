@@ -3,14 +3,14 @@
     font-weight: 100 900;
     font-style: normal;
     src: local("Iosevka Aile Iaso")
-       , url("iosevka-aile-extended.woff2") format("woff2");
+       , url("iosevka-aile-regular.woff2") format("woff2");
 }
 @font-face {
     font-family: "Iosevka Aile Iaso";
     font-weight: 100 900;
     font-style: italic;
     src: local("Iosevka Aile Iaso")
-       , url("iosevka-aile-extendeditalic.woff2") format("woff2");
+       , url("iosevka-aile-italic.woff2") format("woff2");
 }
     
 @font-face {
@@ -25,12 +25,12 @@
     font-weight: 100 900;
     font-style: normal;
     src: local("Iosevka Etoile Iaso")
-       , url("iosevka-etoile-extended.woff2") format("woff2");
+       , url("iosevka-etoile-regular.woff2") format("woff2");
 }
 @font-face {
     font-family: "Iosevka Etoile Iaso";
     font-weight: 100 900;
     font-style: italic;
     src: local("Iosevka Etoile Iaso")
-       , url("iosevka-etoile-extendeditalic.woff2") format("woff2");
+       , url("iosevka-etoile-italic.woff2") format("woff2");
 }

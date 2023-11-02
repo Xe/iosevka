@@ -104,12 +104,10 @@
                 variants = {
                   inherits = "ss01";
                   design = {
-                    capital-w = "straight-flat-top";
                     f = "flat-hook-serifed";
                     j = "flat-hook-serifed";
                     t = "flat-hook";
                     capital-t = "serifed"; # not part of original Iosevka Aile
-                    w = "straight-flat-top";
                     #capital-g = "toothless-rounded-serifless-hooked";
                     i = "zshaped";
                     r = "serifed";

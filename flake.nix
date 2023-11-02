@@ -9,6 +9,22 @@
   outputs = { self, nixpkgs, utils }:
     utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ] (system:
       let pkgs = import nixpkgs { inherit system; };
+          mkWeights = x: {
+            shape = x;
+            menu = x;
+            css = x;
+          };
+          weights = {
+            thin = mkWeights 100;
+            extralight = mkWeights 200;
+            light = mkWeights 300;
+            normal = mkWeights 400;
+            medium = mkWeights 500;
+            semibold = mkWeights 600;
+            bold = mkWeights 700;
+            extrabold = mkWeights 800;
+            black = mkWeights 900;
+          };
       in {
         packages.default = pkgs.stdenvNoCC.mkDerivation {
           name = "iosevka-iaso";
@@ -37,16 +53,12 @@
                     at = "fourfold-solid-inner-tall";
                   };
                 };
+                weights.normal = mkWeights 400;
                 slopes.upright = {
                   angle = 0;
                   shape = "upright";
                   menu = "upright";
                   css = "normal";
-                };
-                weights.regular = {
-                  shape = 400;
-                  menu = 400;
-                  css = 400;
                 };
                 widths.normal = {
                   shape = 500;
@@ -85,12 +97,7 @@
                     css = "italic";
                   };
                 };
-                weights.regular = {
-                  shape = 400;
-                  menu = 400;
-                  css = 400;
-                };
-                inherit metric-override;
+                inherit metric-override weights;
               };
             };
             iosevka-etoile = pkgs.iosevka.override {
@@ -132,12 +139,7 @@
                     css = "italic";
                   };
                 };
-                weights.regular = {
-                  shape = 400;
-                  menu = 400;
-                  css = 400;
-                };
-                inherit metric-override;
+                inherit metric-override weights;
               };
             };
           in ''
@@ -161,6 +163,7 @@
 
             ${pkgs.zip}/bin/zip ttf.zip ttf/*.ttf
 
+            ${pkgs.python3}/bin/python3 ${./src/mkcss.py}
             ${pkgs.python3}/bin/python3 ${./src/specimen.py}
           '';
           installPhase = ''
@@ -168,7 +171,7 @@
             cp *.woff2 $out
             cp ttf.zip $out
 
-            cp ${src/family.css} $out/family.css
+            cp family.css $out/family.css
             cp *.html $out
           '';
         };

@@ -14,9 +14,11 @@ header = '''
          }
          .curly {
             font-family: "Iosevka Curly Iaso";
+            font-weight: 400;
          }
          .etoile {
             font-family: "Iosevka Etoile Iaso";
+            font-weight: 400;
          }
          big {
             font-size: xx-large;
